@@ -2,6 +2,8 @@ package com.SpringBoot.SpringBoot.web.controller;
 
 import com.SpringBoot.SpringBoot.domain.Product;
 import com.SpringBoot.SpringBoot.domain.service.ProductService;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/all")
+ /*   @ApiOperation("Que es lo que hace la api")
+    @ApiResponses({
+            @ApiResponse(code = 200, message"ok"),
+            @ApiResponse(code = 404, message"no found"),
+    })*/
     public ResponseEntity<List<Product>>  getAll(){
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
     }
